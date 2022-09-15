@@ -59,12 +59,21 @@ const pokemons = [
 function trataPokemon(pokemon) {
   pokemon.vida = 100;
 }
-
+//Spread operator foi usado para criar uma cópia do objeto principal não alterando assim o objeto original
 const pokemonsVidaCheia = pokemons.map((pokemon) => {
-  trataPokemon(pokemon);
-  return pokemon;
+  const novoPoke = {
+    ...pokemon
+  }
+  trataPokemon(novoPoke);
+  return novoPoke;
 });
+console.log("*****************");
 console.log(pokemonsVidaCheia);
+console.log("*****************");
+console.log(pokemons);
 
 const pokemonDeFogo = pokemons.filter((pokemon) => pokemon.tipo === "fogo");
 console.log(pokemonDeFogo)
+
+
+
